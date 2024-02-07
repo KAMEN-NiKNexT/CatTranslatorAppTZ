@@ -20,7 +20,7 @@ namespace Kamen.UI
             SwipeRight,
             SwipeLeft
         }
-        private enum State
+        protected enum State
         {
             Shown,
             Hidden,
@@ -65,10 +65,10 @@ namespace Kamen.UI
         [SerializeField] protected Image _background;
 
         [Header("Variables")]
-        private State _state;
-        private CanvasGroup _canvasGroup;
-        private Vector3 _rightPosition;
-        private float _backgroundAlpha;
+        protected State _state;
+        protected CanvasGroup _canvasGroup;
+        protected Vector3 _rightPosition;
+        protected float _backgroundAlpha;
 
         #endregion
 

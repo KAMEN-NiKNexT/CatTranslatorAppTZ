@@ -24,8 +24,8 @@ namespace Kamen.UI
         }
         private void Start()
         {
-            //if (_canvasRectTransform.sizeDelta.y >= _canvasScaler.referenceResolution.y) _canvasScaler.matchWidthOrHeight = 0;
-            //else _canvasScaler.matchWidthOrHeight = 1;
+            if ((float)UnityEngine.Screen.height / UnityEngine.Screen.width < 1.5) _canvasScaler.matchWidthOrHeight = 1;
+            else _canvasScaler.matchWidthOrHeight = 0;
         }
 
         #endregion

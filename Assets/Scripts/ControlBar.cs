@@ -79,7 +79,7 @@ public class ControlBar : SingletonComponent<ControlBar>
 
     private void Start()
     {
-        ChangeCurrentMenu(_buttonsInfo[0]);
+        //ChangeCurrentMenu(_buttonsInfo[0]);
     }
 
 
