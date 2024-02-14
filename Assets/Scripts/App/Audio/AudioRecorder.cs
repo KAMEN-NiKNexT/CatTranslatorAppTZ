@@ -6,6 +6,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+#if UNITY_ANDROID
+    using UnityEngine.Android;
+#endif
 
 namespace CatTranslator.Audio
 {
@@ -30,6 +33,7 @@ namespace CatTranslator.Audio
         [Header("Control Variables")]
         private RecorderState _state = RecorderState.Inactive;
         private AudioClip _audioClip;
+        private bool _isHavePermission;
 
         [Header("Record Variables")]
         private List<float> _samplesDataList = new List<float>();
@@ -66,11 +70,47 @@ namespace CatTranslator.Audio
 
         private void InitializeMicrophone()
         {
-        }
 
+        }
+        public void RequestMicrophonePermission()
+        {
+            if (!CheckMicrophonePermission())
+            {
+                Debug.Log("User does not have microphone permission");
+#if UNITY_ANDROID
+                Debug.Log("Requesting Android mic permission");
+                Permission.RequestUserPermission(Permission.Microphone);
+#endif
+#if UNITY_IOS
+                Debug.Log("Requesting iOS mic permission");
+                Application.RequestUserAuthorization(UserAuthorization.Microphone);
+#else
+                Debug.Log("Requesting permission in else block");
+                Application.RequestUserAuthorization(UserAuthorization.Microphone);
+#endif
+
+                if (CheckMicrophonePermission())
+                {
+                    _isHavePermission = true;
+                    Debug.Log("User has enabled microphone");
+                }
+                else Debug.Log("User did not provide microphone permission");
+            }
+            else 
+            {
+                _isHavePermission = true;
+                Debug.Log("User has microphone permission");
+            }
+        }
 
         public void StartRecord()
         {
+            if (!_isHavePermission)
+            {
+                RequestMicrophonePermission();
+                return;
+            }
+
             if (_state != RecorderState.Inactive) return;
             _state = RecorderState.Preparation;
 
@@ -140,6 +180,20 @@ namespace CatTranslator.Audio
                 yield return null;
                 _currentTimeRecord += Time.deltaTime;
             }
+        }
+        private bool CheckMicrophonePermission()
+        {
+#if UNITY_ANDROID
+            Debug.Log("Checked Android mic permission");
+            return Permission.HasUserAuthorizedPermission(Permission.Microphone);
+#endif
+#if UNITY_IOS
+            Debug.Log("Checked iOS mic permission");
+            return Application.HasUserAuthorization(UserAuthorization.Microphone);
+#else
+            Debug.Log("Checked else mic permission");
+            return Application.HasUserAuthorization(UserAuthorization.Microphone);
+#endif
         }
 
         #endregion

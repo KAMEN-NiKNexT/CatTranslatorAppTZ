@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Kamen;
 using Kamen.UI;
+using TMPro;
+using CatTranslator.UI;
 
 public class AddNewCatPopup : Popup
 {
@@ -10,12 +12,20 @@ public class AddNewCatPopup : Popup
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _catCard;
+    //old
 
     [Header("Objects")]
     [SerializeField] private GameObject _catCardHolder;
+    //old
+    [SerializeField] private TextMeshProUGUI _nameInputField;
+    [SerializeField] private TextMeshProUGUI _ageInputField;
+    [SerializeField] private TextMeshProUGUI _breedInputField;
+    [SerializeField] private ButtonComponent _maleButton;
+    [SerializeField] private ButtonComponent _femaleButton;
 
     [Header("Settings")]
     [SerializeField] private string _popupHideName;
+    //old
 
     #endregion
 
@@ -26,6 +36,7 @@ public class AddNewCatPopup : Popup
     #endregion
 
     #region Control Methods
+
 
     public override void Initialize()
     {
