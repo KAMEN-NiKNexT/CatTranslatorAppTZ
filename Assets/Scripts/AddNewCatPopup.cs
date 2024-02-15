@@ -39,6 +39,7 @@ namespace CatTranslator.UI
         private string _photoPath = "";
         private Sprite _photoSprite;
         public event Action<CatProfileData> OnAddedNewCatProfile;
+        private int _currentInbuiltCatIcon;
 
         #endregion
 
@@ -75,7 +76,7 @@ namespace CatTranslator.UI
         }
         private void ClearFields()
         {
-            _catIcon.sprite = _catsIconHolder.GetRandomIcon();
+            (_catIcon.sprite, _currentInbuiltCatIcon) = _catsIconHolder.GetRandomIcon();
 
             _nameInputField.text = "";
             _ageInputField.text = "";
@@ -105,7 +106,7 @@ namespace CatTranslator.UI
         }
         private void SaveNewCat()
         {
-            CatProfileData newCatProfileData = new CatProfileData(_photoPath, _nameInputField.text, int.Parse(_ageInputField.text), _breedInputField.text, _currentChoosenGender);
+            CatProfileData newCatProfileData = new CatProfileData(_photoPath, _nameInputField.text, int.Parse(_ageInputField.text), _breedInputField.text, _currentChoosenGender, _currentInbuiltCatIcon);
             OnAddedNewCatProfile?.Invoke(newCatProfileData);
             PopupManager.Instance.Hide(_popupHideName);
         }

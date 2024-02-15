@@ -25,7 +25,11 @@ namespace CatTranslator.UI
 
             return _icon[index];
         }
-        public Sprite GetRandomIcon() => _icon[Random.Range(0, _icon.Length - 1)];
+        public ( Sprite, int ) GetRandomIcon()
+        {
+            int index = Random.Range(0, _icon.Length - 1);
+            return (_icon[index], index);
+        }
 
         #endregion
     }

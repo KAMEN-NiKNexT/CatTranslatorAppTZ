@@ -25,6 +25,10 @@ namespace CatTranslator.Save
         [SerializeField] private int _age;
         [SerializeField] private string _breed;
         [SerializeField] private CatGender _gender;
+        [Space]
+        [SerializeField] private bool _isUseInbuiltIcons;
+        [SerializeField] private int _inbuiltIconIndex;
+        [Space]
         [SerializeField] private List<string> _audioFileNames = new List<string>();
 
         #endregion
@@ -36,19 +40,29 @@ namespace CatTranslator.Save
         public int Age { get => _age; }
         public string Breed { get => _breed; }
         public CatGender Gender { get => _gender; }
+
+        public bool IsUseInbuiltIcons { get => _isUseInbuiltIcons; }
+        public int InbuiltIconIndex { get => _inbuiltIconIndex; }
+
         public List<string> AudioFileNames { get => _audioFileNames; }
 
         #endregion
 
         #region Constructor
 
-        public CatProfileData(string photoPath, string name, int age, string breed, CatGender gender)
+        public CatProfileData(string photoPath, string name, int age, string breed, CatGender gender, int inbuiltIconIndex)
         {
             _photoPath = photoPath;
             _name = name;
             _age = age;
             _breed = breed;
             _gender = gender;
+
+            if (photoPath == "")
+            {
+                _isUseInbuiltIcons = true;
+                _inbuiltIconIndex = inbuiltIconIndex;
+            }
         }
 
         #endregion

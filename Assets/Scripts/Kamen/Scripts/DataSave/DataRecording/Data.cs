@@ -12,9 +12,12 @@ namespace Kamen.DataSave
         [SerializeField] private List<TimerInfo> _timersInfo = new List<TimerInfo>();
         [SerializeField] private DateTime _quitTime;
         [Space]
-        [SerializeField] private List<CatProfileData> _catProfilesData = new List<CatProfileData>();
+        [SerializeField] private List<CatProfileData> _catProfilesData = new List<CatProfileData>(1) { new CatProfileData("", "Unknown cat", 0, "", CatProfileData.CatGender.Male, 0) };
         [SerializeField] private int _currentProfileIndex;
         public event Action<int, int> OnCurrentProfileChanged;
+        [Space]
+        [SerializeField] private float _timeFromStartFeaturesTimer;
+        [SerializeField] private bool _isFeaturesTimerStoped;
 
         public Action OnDataChanged;
 
@@ -43,6 +46,25 @@ namespace Kamen.DataSave
                     OnCurrentProfileChanged?.Invoke(_currentProfileIndex, value);
                     _currentProfileIndex = value;
                 }
+            }
+        }
+
+        public float TimeFromStartTimer 
+        {
+            get => _timeFromStartFeaturesTimer;
+            set
+            {
+                if (value < 0) return;
+                _timeFromStartFeaturesTimer = value;
+            }
+        }
+        public bool IsFeaturesTimerStoped
+        {
+            get => _isFeaturesTimerStoped;
+            set
+            {
+                if (!value) return;
+                _isFeaturesTimerStoped = value;
             }
         }
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using CatTranslator.Save;
+using CatTranslator.Control;
 
 namespace CatTranslator.UI
 {
@@ -27,7 +28,7 @@ namespace CatTranslator.UI
         {
             _catProfileData = catProfileData;
 
-            _icon.sprite = LoadIcon(_catProfileData.PhotoPath);
+            _icon.sprite = CatIconLoader.Instance.LoadIcon(_catProfileData);
             _text.text = _catProfileData.Name;
 
             _button.onClick.AddListener(Click);
@@ -35,15 +36,6 @@ namespace CatTranslator.UI
         private void Click()
         {
             OnChoosed?.Invoke(_catProfileData);
-        }
-        private Sprite LoadIcon(string path)
-        {
-            if (path == "") return _icon.sprite;
-
-            Texture2D texture = NativeGallery.LoadImageAtPath(path);
-            if (texture == null) return null;
-
-            return Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
         }
 
         #endregion

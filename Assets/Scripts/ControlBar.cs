@@ -87,8 +87,10 @@ public class ControlBar : SingletonComponent<ControlBar>
 
     #region Control Methods
 
-    public void ChangeCurrentMenu(string buttonName) => ChangeCurrentMenu(GetControlButtonInfoByName(buttonName));
+    public void Hide() => gameObject.SetActive(false);
+    public void Show() => gameObject.SetActive(true);
 
+    public void ChangeCurrentMenu(string buttonName) => ChangeCurrentMenu(GetControlButtonInfoByName(buttonName));
     public void ChangeCurrentMenu(ControlButtonInfo buttonInfo)
     {
         for (int i = 0; i < _buttonsInfo.Length; i++)
