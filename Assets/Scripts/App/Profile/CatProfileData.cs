@@ -20,8 +20,8 @@ namespace CatTranslator.Save
 
         #region Variables
 
-        [SerializeField] private string _name;
         [SerializeField] private string _photoPath;
+        [SerializeField] private string _name;
         [SerializeField] private int _age;
         [SerializeField] private string _breed;
         [SerializeField] private CatGender _gender;
@@ -31,8 +31,8 @@ namespace CatTranslator.Save
 
         #region Properties
 
+        public string PhotoPath { get => _photoPath; }
         public string Name { get => _name; }
-        public string Photo { get => _photoPath; }
         public int Age { get => _age; }
         public string Breed { get => _breed; }
         public CatGender Gender { get => _gender; }
@@ -42,10 +42,10 @@ namespace CatTranslator.Save
 
         #region Constructor
 
-        public CatProfileData(string name, string photoPath, int age, string breed, CatGender gender)
+        public CatProfileData(string photoPath, string name, int age, string breed, CatGender gender)
         {
-            _name = name;
             _photoPath = photoPath;
+            _name = name;
             _age = age;
             _breed = breed;
             _gender = gender;

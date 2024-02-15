@@ -1,10 +1,10 @@
 using DG.Tweening;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using CatTranslator.Save;
 
 namespace CatTranslator.UI
 {
@@ -54,17 +54,18 @@ namespace CatTranslator.UI
         #region Variables
 
         [Header("Objects")]
-        [SerializeField] private GameObject _holder;
-        [SerializeField] private Image _background;
-        [SerializeField] private TextMeshProUGUI _text;
+        [SerializeField] protected GameObject _holder;
+        [SerializeField] protected Image _background;
+        [SerializeField] protected TextMeshProUGUI _text;
 
         [Header("Settings")]
-        [SerializeField] private ColorsInfo _enableColors;
-        [SerializeField] private ColorsInfo _disableColors;
-        [SerializeField] private ButtonState _startState;
+        [SerializeField] protected ColorsInfo _enableColors;
+        [SerializeField] protected ColorsInfo _disableColors;
+        [SerializeField] protected ButtonState _startState;
 
         [Header("Variables")]
-        private ButtonState _currentState;
+        protected Button _button;
+        protected ButtonState _currentState;
 
         #endregion
 
@@ -74,33 +75,35 @@ namespace CatTranslator.UI
 
         #endregion
 
-        #region Unity Methods
-
-        private void Start()
-        {
-            _currentState = _startState;
-            CallChangeState(true);
-        }
-
-
-        #endregion
-
         #region Control Methods
 
-
-        public void CallChangeState(bool isFast)
+        public void Initialize()
+        {
+            _currentState = _startState;
+            _button = GetComponent<Button>();
+            CallChangeState(true);
+        }
+        public void CallChangeState(bool isFast = false)
         {
             if (_currentState == ButtonState.Enabled) ChangeState(_disableColors, isFast);
             else if (_currentState == ButtonState.Disabled) ChangeState(_enableColors, isFast);
         }
-        private void ChangeState(ColorsInfo colorsInfo, bool isFast)
+        private void ChangeState(ColorsInfo colorsInfo, bool isFast = false)
         {
             _background.DOColor(colorsInfo.BackgroundColor, isFast ? 0 :colorsInfo.SwitchDuration).SetEase(colorsInfo.SwitchEase).SetDelay(colorsInfo.SwitchDelay);
             _text.DOColor(colorsInfo.TextColor, isFast ? 0 :colorsInfo.SwitchDuration).SetEase(colorsInfo.SwitchEase).SetDelay(colorsInfo.SwitchDelay);
 
             if (_currentState == ButtonState.Enabled) _currentState = ButtonState.Disabled;
             else if (_currentState == ButtonState.Disabled) _currentState = ButtonState.Enabled;
+            
         }
+
+        #endregion
+
+        #region SetUp Methods
+
+        public virtual void AddMethodForButtonClick(UnityAction callback) => _button.onClick.AddListener(callback);
+        public virtual void RemoveMethodForButtonClick(UnityAction callback) => _button.onClick.RemoveListener(callback);
 
         #endregion
     }
