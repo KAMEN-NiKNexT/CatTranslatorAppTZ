@@ -106,7 +106,14 @@ namespace CatTranslator.UI
         }
         private void SaveNewCat()
         {
-            CatProfileData newCatProfileData = new CatProfileData(_photoPath, _nameInputField.text, int.Parse(_ageInputField.text), _breedInputField.text, _currentChoosenGender, _currentInbuiltCatIcon);
+            CatProfileData newCatProfileData = new CatProfileData (
+                _photoPath, 
+                _nameInputField.text, 
+                _ageInputField.text == "" ? 0 : int.Parse(_ageInputField.text), 
+                _breedInputField.text, 
+                _currentChoosenGender, 
+                _currentInbuiltCatIcon );
+
             OnAddedNewCatProfile?.Invoke(newCatProfileData);
             PopupManager.Instance.Hide(_popupHideName);
         }

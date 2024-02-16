@@ -183,7 +183,7 @@ namespace CatTranslator.Audio
                 _splitSamplesDataList.RemoveRange(_recordedSplitSamples, _splitSamplesData.Length - _recordedSplitSamples);
                 _splitSamplesData = _splitSamplesDataList.ToArray();
             }
-
+            Debug.Log("Splited");
             OnRecordSplited?.Invoke(_splitSamplesData);
         }
 

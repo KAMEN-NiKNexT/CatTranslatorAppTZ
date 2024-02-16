@@ -53,7 +53,7 @@ namespace CatTranslator.Save
         public CatProfileData(string photoPath, string name, int age, string breed, CatGender gender, int inbuiltIconIndex)
         {
             _photoPath = photoPath;
-            _name = name;
+            _name = name == "" ? "Unknown cat" : name;
             _age = age;
             _breed = breed;
             _gender = gender;

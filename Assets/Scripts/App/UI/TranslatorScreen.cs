@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Kamen.UI;
+using Kamen.DataSave;
 using CatTranslator.IAP;
 using UnityEngine.UI;
 using TMPro;
+using CatTranslator.Control;
+using CatTranslator.Audio;
 
 namespace CatTranslator.UI
 {
@@ -42,12 +45,24 @@ namespace CatTranslator.UI
         [SerializeField] private TextMeshProUGUI _noDetectedText;
         [SerializeField] private Button _stopRecordingButton;
 
+        [Header("Variables")]
+        private bool _isCatFounded;
 
         #endregion
 
         #region Properties
 
 
+
+        #endregion
+
+        #region Unity Methods
+
+        private void Start()
+        {
+            AIManager.Instance.OnCatNoticed += DecodeAIAnswer;
+            AudioRecorder.Instance.OnRecordingStateChanged += RecordViewManager;
+        }
 
         #endregion
 
@@ -68,9 +83,41 @@ namespace CatTranslator.UI
             _noDetectedText.gameObject.SetActive(currentState == TranslatorScreenState.RecordingWithoutSound);
             _stopRecordingButton.gameObject.SetActive(currentState == TranslatorScreenState.RecordingWithSound || currentState == TranslatorScreenState.RecordingWithoutSound);
         }
-        public void OpenRecordView()
+        private void DecodeAIAnswer(bool isHaveCatVoice)
         {
-            ObjectsManage(TranslatorScreenState.RecordingWithoutSound);
+            if (_isCatFounded) return;
+
+            if (isHaveCatVoice)
+            {
+                ObjectsManage(TranslatorScreenState.RecordingWithSound);
+                _isCatFounded = true;
+            }
+            else ObjectsManage(TranslatorScreenState.RecordingWithoutSound);
+        }
+        private void RecordViewManager(AudioRecorder.RecorderState state)
+        {
+            if (state == AudioRecorder.RecorderState.Active)
+            {
+                _isCatFounded = false;
+                ObjectsManage(TranslatorScreenState.RecordingWithoutSound);
+            }
+            else if (state == AudioRecorder.RecorderState.Inactive)
+            {
+                if (_isCatFounded)
+                {
+                    PopupManager.Instance.Show("RecognitionPopup");
+                }
+                else
+                {
+                    PopupManager.Instance.Show("TryAgainPopup");
+                    //ObjectsManage(TranslatorScreenState.UndoRecoginzing);
+                }
+            }
+        }
+        public void CallShowResalt()
+        {
+            if (DataSaveManager.Instance.MyData.IsSubscribed) PopupManager.Instance.Show("ReadyTranslationPopup");
+            else PopupManager.Instance.Show("LockedTranslationPopup");
         }
         public void CallStandingMode() => ObjectsManage(TranslatorScreenState.Standing);
 

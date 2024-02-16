@@ -17,6 +17,7 @@ namespace CatTranslator.UI
 
         [Header("Settings")]
         [SerializeField] private string _baseScreenName;
+        [SerializeField] private string _controlBarMenu;
 
         #endregion
 
@@ -50,21 +51,17 @@ namespace CatTranslator.UI
         }
         private void StartLimitedVersion()
         {
-            ScreenManager.Instance.TransitionTo(_baseScreenName);
-            ControlBar.Instance.gameObject.SetActive(true);
-
-            FinishStartScreens();
+            Succeded();
         }
         private void SubscribeAndContinue()
         {
-            PurchasesListener.Instance.PurchaseSubscription("test", SubscribeSucced);         
+            PurchasesListener.Instance.PurchaseSubscription("test", Succeded);         
         }
-        private void SubscribeSucced()
+        private void Succeded()
         {
             ScreenManager.Instance.TransitionTo(_baseScreenName);
-            ControlBar.Instance.gameObject.SetActive(true);
-
-            FinishStartScreens();
+            ControlBar.Instance.Show();
+            ControlBar.Instance.ChangeCurrentMenu(_controlBarMenu);
 
             FinishStartScreens();
         }

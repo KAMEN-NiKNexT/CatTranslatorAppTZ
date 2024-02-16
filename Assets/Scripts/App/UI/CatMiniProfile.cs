@@ -41,8 +41,8 @@ namespace CatTranslator.UI
         }
         private void SetUpView(CatProfileData catProfileData)
         {
-            _icon.sprite = CatIconLoader.Instance.LoadIcon(catProfileData);
-            _nameText.text = catProfileData.Name;
+            if (_icon != null) _icon.sprite = CatIconLoader.Instance.LoadIcon(catProfileData);
+            if (_nameText != null) _nameText.text = catProfileData.Name;
         }
 
         #endregion

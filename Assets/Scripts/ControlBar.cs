@@ -75,16 +75,6 @@ public class ControlBar : SingletonComponent<ControlBar>
 
     #endregion
 
-    #region Unity Methods
-
-    private void Start()
-    {
-        //ChangeCurrentMenu(_buttonsInfo[0]);
-    }
-
-
-    #endregion
-
     #region Control Methods
 
     public void Hide() => gameObject.SetActive(false);

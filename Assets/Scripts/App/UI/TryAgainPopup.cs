@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Kamen.UI;
 using UnityEngine.UI;
+using CatTranslator.Audio;
 
 namespace CatTranslator.UI
 {
@@ -29,7 +30,7 @@ namespace CatTranslator.UI
         private void CallTryAgain()
         {
             PopupManager.Instance.Hide("TryAgainPopup");
-            _translatorScreen.OpenRecordView();
+            AudioRecorder.Instance.StartRecord();
         }
         private void CallToMainPage()
         {

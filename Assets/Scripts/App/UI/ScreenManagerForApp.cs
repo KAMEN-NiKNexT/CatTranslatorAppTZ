@@ -12,6 +12,7 @@ namespace CatTranslator.UI
         #region Variables
 
         [SerializeField] private string _baseScreenName;
+        [SerializeField] private string _controlBarMenu;
 
         #endregion
 
@@ -28,12 +29,13 @@ namespace CatTranslator.UI
             if (!DataSaveManager.Instance.MyData.IsStartScreensShowed)
             {
                 FastTransitionTo(_startScreen);
-                ControlBar.Instance.gameObject.SetActive(false);
+                ControlBar.Instance.Hide();
             }
             else
             {
                 FastTransitionTo(_baseScreenName);
-                ControlBar.Instance.gameObject.SetActive(true);
+                ControlBar.Instance.Show();
+                ControlBar.Instance.ChangeCurrentMenu(_controlBarMenu);
             }
         }
 
