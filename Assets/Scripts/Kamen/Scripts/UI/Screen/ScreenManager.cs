@@ -19,7 +19,7 @@ namespace Kamen.UI
             SwipeLeft
         }
 
-        private enum State
+        protected enum State
         {
             Standing,
             Transition
@@ -29,7 +29,7 @@ namespace Kamen.UI
 
         #region Classes
 
-        [Serializable] private class TransitionInfo
+        [Serializable] protected class TransitionInfo
         {
             #region TransitionInfo Variables
 
@@ -50,7 +50,7 @@ namespace Kamen.UI
             #endregion
         }
 
-        [Serializable] private class ScreenInfo
+        [Serializable] protected class ScreenInfo
         {
             #region ScreenInfo Variables
 
@@ -74,14 +74,14 @@ namespace Kamen.UI
         #region Variables
 
         [Header("Settings")]
-        [SerializeField] private TransitionInfo _transitionInfo;
+        [SerializeField] protected TransitionInfo _transitionInfo;
         [Space]
-        [SerializeField] private ScreenInfo[] _screenInfos;
-        [SerializeField] private string _startScreen;
+        [SerializeField] protected ScreenInfo[] _screenInfos;
+        [SerializeField] protected string _startScreen;
 
         [Header("Variables")]
-        private ScreenInfo _currentScreen;
-        private State _state;
+        protected ScreenInfo _currentScreen;
+        protected State _state;
 
         #endregion
 
@@ -96,7 +96,15 @@ namespace Kamen.UI
         protected override void Awake()
         {
             base.Awake();
+            Initialize();
+        }
 
+        #endregion
+
+        #region Control Methods
+
+        protected virtual void Initialize()
+        {
             for (int i = 0; i < _screenInfos.Length; i++)
             {
                 _screenInfos[i].ThisScreen.Initialize();
@@ -104,11 +112,6 @@ namespace Kamen.UI
             _state = State.Standing;
             FastTransitionTo(_startScreen);
         }
-
-        #endregion
-
-        #region Control Methods
-
         public void TransitionTo(string id) => TransitionTo(id, false);
         public void TransitionTo(string id, bool isFast)
         {

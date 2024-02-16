@@ -29,6 +29,7 @@ namespace CatTranslator.Audio
 
         [Header("Settings")]
         [SerializeField] private int _maxTimeRecord;
+        [SerializeField] private float _timeToSplit;
 
         [Header("Control Variables")]
         private RecorderState _state = RecorderState.Inactive;
@@ -40,6 +41,13 @@ namespace CatTranslator.Audio
         private float[] _samplesData;
         private int _recordedSamples;
         private float _currentTimeRecord;
+
+        [Header("Record Split Variables")]
+        private List<float> _splitSamplesDataList = new List<float>();
+        private float[] _splitSamplesData;
+        private int _recordedSplitSamples;
+        private Coroutine _timerToCallSplitCoroutine;
+        public event Action<float[]> OnRecordSplited;
 
         [Header("Help Variables")]
         private Coroutine _timerToSaveAfterLimitCoroutine;
@@ -116,6 +124,7 @@ namespace CatTranslator.Audio
 
             _timerToSaveAfterLimitCoroutine = StartCoroutine(TimerToSaveAfterLimit(_maxTimeRecord));
             _timeRecordControlCoroutine = StartCoroutine(TimeRecordControl());
+            _timerToCallSplitCoroutine = StartCoroutine(TimerToCallSplit());
             Microphone.End(Microphone.devices[0]);
             _audioClip = Microphone.Start(Microphone.devices[0], false, _maxTimeRecord, 44100);
 
@@ -133,6 +142,7 @@ namespace CatTranslator.Audio
         {
             if (_timeRecordControlCoroutine != null) StopCoroutine(_timeRecordControlCoroutine);
             if (_timerToSaveAfterLimitCoroutine != null) StopCoroutine(_timerToSaveAfterLimitCoroutine);
+            if (_timerToCallSplitCoroutine != null) StopCoroutine(_timerToCallSplitCoroutine);
 
             while (!(Microphone.GetPosition(null) > 0))
             {
@@ -159,6 +169,23 @@ namespace CatTranslator.Audio
             _state = RecorderState.Inactive;
             OnRecordingStateChanged?.Invoke(RecorderState.Inactive);
         }
+        private void SplitRecord(AudioClip clipToSplit)
+        {
+            _splitSamplesData = new float[clipToSplit.samples * clipToSplit.channels];
+            clipToSplit.GetData(_splitSamplesData, 0);
+
+            _splitSamplesDataList.Clear();
+            _splitSamplesDataList = _splitSamplesData.ToList();
+            _recordedSplitSamples = (int)(_splitSamplesData.Length * (_currentTimeRecord / (float)_maxTimeRecord));
+
+            if (_recordedSplitSamples < _splitSamplesData.Length - 1)
+            {
+                _splitSamplesDataList.RemoveRange(_recordedSplitSamples, _splitSamplesData.Length - _recordedSplitSamples);
+                _splitSamplesData = _splitSamplesDataList.ToArray();
+            }
+
+            OnRecordSplited?.Invoke(_splitSamplesData);
+        }
 
         #endregion
 
@@ -179,6 +206,14 @@ namespace CatTranslator.Audio
             {
                 yield return null;
                 _currentTimeRecord += Time.deltaTime;
+            }
+        }
+        private IEnumerator TimerToCallSplit()
+        {
+            while (true)
+            {
+                for (float t = 0; t < _timeToSplit; t += Time.deltaTime) { yield return null; }
+                if (_audioClip != null) SplitRecord(_audioClip);
             }
         }
         private bool CheckMicrophonePermission()

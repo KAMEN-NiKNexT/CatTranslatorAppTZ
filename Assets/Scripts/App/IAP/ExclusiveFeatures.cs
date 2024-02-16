@@ -4,9 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CatTranslator.IAP
 {
+    [RequireComponent(typeof(Button))]
     public class ExclusiveFeatures : MonoBehaviour
     {
         #region Variables
@@ -16,6 +18,7 @@ namespace CatTranslator.IAP
 
         [Header("Settings")]
         [SerializeField] private int _offerTime;
+        [SerializeField] private string _subscribeName;
 
         [Header("Variables")]
         private float _timeFromStartTimer;
@@ -24,6 +27,8 @@ namespace CatTranslator.IAP
         private int _fullTime;
         private int _viewMinutes;
         private int _viewSeconds;
+
+        private Button _button;
 
         public event Action OnFeaturesStoped;
 
@@ -37,7 +42,7 @@ namespace CatTranslator.IAP
         }
         private void Update()
         {
-            if (DataSaveManager.Instance.MyData.IsFeaturesTimerStoped) return;
+            if (DataSaveManager.Instance.MyData.IsFeaturesTimerStoped || DataSaveManager.Instance.MyData.IsSubscribed) return;
 
             _timeFromStartTimer += Time.deltaTime;
             UpdateView();
@@ -45,7 +50,7 @@ namespace CatTranslator.IAP
         }
         private void OnEnable()
         {
-            if (DataSaveManager.Instance.MyData.IsFeaturesTimerStoped) gameObject.SetActive(false);
+            if (DataSaveManager.Instance.MyData.IsFeaturesTimerStoped || DataSaveManager.Instance.MyData.IsSubscribed) gameObject.SetActive(false);
         }
         private void OnApplicationQuit()
         {
@@ -53,7 +58,15 @@ namespace CatTranslator.IAP
         }
         private void OnApplicationPause(bool pause)
         {
-            WriteTimeInDataBase();
+            if (pause) WriteTimeInDataBase();
+        }
+        private void OnApplicationFocus(bool focus)
+        {
+            if (!focus) WriteTimeInDataBase();
+        }
+        private void OnDestroy()
+        {
+            _button.onClick.RemoveListener(GetExclusiveFeature);
         }
 
         #endregion
@@ -63,6 +76,8 @@ namespace CatTranslator.IAP
         private void Initialize()
         {
             _timeFromStartTimer = DataSaveManager.Instance.MyData.TimeFromStartTimer;
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(GetExclusiveFeature);
         }
         private void UpdateView()
         {
@@ -71,6 +86,10 @@ namespace CatTranslator.IAP
             _viewSeconds = _fullTime - _viewMinutes * 60;
             string timerText = (_viewMinutes < 10 ? "0" + _viewMinutes : "" + _viewMinutes) + ":" +  (_viewSeconds < 10 ? "0" + _viewSeconds : "" + _viewSeconds);
             _timerView.text = timerText;
+        }
+        private void GetExclusiveFeature()
+        {
+            PurchasesListener.Instance.PurchaseSubscriptionWithDiscount(_subscribeName, CallStopFeautures);
         }
         private void WriteTimeInDataBase()
         {

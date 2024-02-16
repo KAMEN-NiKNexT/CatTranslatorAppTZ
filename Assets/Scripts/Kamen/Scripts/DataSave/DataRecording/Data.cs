@@ -18,6 +18,9 @@ namespace Kamen.DataSave
         [Space]
         [SerializeField] private float _timeFromStartFeaturesTimer;
         [SerializeField] private bool _isFeaturesTimerStoped;
+        [Space]
+        [SerializeField] private bool _isStartScreensShowed;
+        [SerializeField] private bool _isSubcribed;
 
         public Action OnDataChanged;
 
@@ -66,6 +69,21 @@ namespace Kamen.DataSave
                 if (!value) return;
                 _isFeaturesTimerStoped = value;
             }
+        }
+
+        public bool IsStartScreensShowed
+        {
+            get => _isStartScreensShowed;
+            set
+            {
+                if (!value) return; 
+                _isStartScreensShowed = value;
+            }
+        }
+        public bool IsSubscribed
+        {
+            get => _isSubcribed;
+            set { _isSubcribed = true; }
         }
 
         #endregion
