@@ -1,0 +1,237 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: MainApp_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 3979a7ac828e47044b701dde724ebfce, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 549380444160
+    m_Localized: "Ol\xE1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 890800984064
+    m_Localized: Bem -vindo ao Meowchat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 934098784256
+    m_Localized: Embarque em uma aventura ronzeira com nosso aplicativo de tradutor
+      de gatos.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1053862940672
+    m_Localized: Valorizamos seu feedback
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1610547744768
+    m_Localized: "Todos os dias estamos melhorando devido \xE0s suas classifica\xE7\xF5es
+      e cr\xEDticas - isso nos ajuda a proteger suas contas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1707096428544
+    m_Localized: Capture a voz do seu gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1744052441088
+    m_Localized: "Registre os matos e express\xF5es do seu gato. Nossa tecnologia
+      avan\xE7ada traduzir\xE1 sua linguagem em palavras humanas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1828919988224
+    m_Localized: Desbloqueie recursos premium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1882607079424
+    m_Localized: "Inscreva -se em nosso plano premium para recursos exclusivos, vocabul\xE1rio
+      expandido e muito mais.\n<b>Apenas por 5,99 $ por semana</b>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2032402452480
+    m_Localized: "Continue com vers\xE3o limitada"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2078674014208
+    m_Localized: Termos de uso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2122487713792
+    m_Localized: "Pol\xEDtica de Privacidade"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201147691008
+    m_Localized: Inscreva -se e continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2271377117184
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2324380536832
+    m_Localized: Tradutor <color=#F9E430>de gatos</color>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2522615926784
+    m_Localized: "Pressione o bot\xE3o para iniciar a tradu\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2573610274816
+    m_Localized: Recursos exclusivos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2619663732736
+    m_Localized: "Oferta de tempo limitado - eleve sua experi\xEAncia hoje!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2813079867392
+    m_Localized: Oferta -15%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2859150102528
+    m_Localized: "Espere, identificamos o que seu gato est\xE1 dizendo\U0001F431"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2899893571584
+    m_Localized: Nenhum miado detectado, tente aproximar o telefone.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2945045254144
+    m_Localized: "Infelizmente, n\xE3o conseguimos reconhecer. Certifique -se de
+      que haja um gato por perto e que nenhum outro sons interfira na detec\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2992826765312
+    m_Localized: "Para a p\xE1gina principal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3039010246656
+    m_Localized: Tente novamente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3223509291008
+    m_Localized: "An\xE1lise de som"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3269738909696
+    m_Localized: "Iniciar a tradu\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3311866499072
+    m_Localized: Um pouco mais
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3373053005824
+    m_Localized: Feito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3409275015168
+    m_Localized: "A tradu\xE7\xE3o est\xE1 pronta"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3458272874496
+    m_Localized: "Isso \xE9 o que seu gatinho diz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3505551069184
+    m_Localized: Seu som
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3555387789312
+    m_Localized: Traduzir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3600862433280
+    m_Localized: "Salve a tradu\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3652217491456
+    m_Localized: Desbloqueie conversas felinas!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3708546994176
+    m_Localized: "Inscreva-se no nosso tradutor de gato premium e obtenha acesso
+      a um mundo de comunica\xE7\xE3o ronzeira"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3805284421632
+    m_Localized: "3 dias gr\xE1tis que 5,99 USD por semana"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3847445565440
+    m_Localized: "Atualiza\xE7\xE3o para Premium"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3889740926976
+    m_Localized: Pare de gravar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3929981079552
+    m_Localized: Tradutor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3987996692480
+    m_Localized: "Hist\xF3ria"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4021039419392
+    m_Localized: Perfil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4063418667008
+    m_Localized: "Voc\xEA ainda n\xE3o tem nenhuma tradu\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4111778992128
+    m_Localized: "Iniciar a tradu\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4155676577792
+    m_Localized: Adicione um novo gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4199498665984
+    m_Localized: Salvar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4245644398592
+    m_Localized: Adicione um novo gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295615336448
+    m_Localized: Adicione a foto do gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4343761752064
+    m_Localized: Nome do seu gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4400565211136
+    m_Localized: Idade do seu gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4442919292928
+    m_Localized: "Ra\xE7a gato (opcional)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4482916175872
+    m_Localized: Macho
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4524917936128
+    m_Localized: "F\xEAmea"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

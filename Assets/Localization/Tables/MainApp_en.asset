@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: MainApp_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 3979a7ac828e47044b701dde724ebfce, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 549380444160
+    m_Localized: Hello
+    m_Metadata:
+      m_Items: []
+  - m_Id: 890800984064
+    m_Localized: Welcome to Meowchat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 934098784256
+    m_Localized: Embark on a purr-fect adventure with our Cat Translator App.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1053862940672
+    m_Localized: We value your feedback
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1610547744768
+    m_Localized: "Every day we are getting better due to your ratings and reviews
+      \u2014 that helps us protect your accounts."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1707096428544
+    m_Localized: Capture Your Cat's Voice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1744052441088
+    m_Localized: Record your cat's meows and expressions. Our advanced technology
+      will translate their language into human words.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1828919988224
+    m_Localized: Unlock Premium Features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1882607079424
+    m_Localized: "Subscribe to our premium plan for exclusive features, expanded
+      vocabulary, and more. \n<b>Just for 5.99$ per week</b>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2032402452480
+    m_Localized: Continue with limited version
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2078674014208
+    m_Localized: Terms of Use
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2122487713792
+    m_Localized: Privacy Policy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201147691008
+    m_Localized: Subscribe and continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2271377117184
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2324380536832
+    m_Localized: Cat <color=#F9E430>translator</color>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2522615926784
+    m_Localized: Press the button to start translation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2573610274816
+    m_Localized: Exclusive Features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2619663732736
+    m_Localized: "Limited time offer \u2013 elevate your experience today!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2813079867392
+    m_Localized: Sale -15%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2859150102528
+    m_Localized: "Wait, we identify what your cat is saying\U0001F431"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2899893571584
+    m_Localized: No meowing detected, try bringing the phone closer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2945045254144
+    m_Localized: Unfortunately, we could not recognize. Make sure that there is a
+      cat nearby and that no other sounds interfere with the detection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2992826765312
+    m_Localized: To the main page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3039010246656
+    m_Localized: Try again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3223509291008
+    m_Localized: Sound analysis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3269738909696
+    m_Localized: Start translation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3311866499072
+    m_Localized: A little more
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3373053005824
+    m_Localized: Done
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3409275015168
+    m_Localized: Translation is ready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3458272874496
+    m_Localized: This is what your kitty says
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3505551069184
+    m_Localized: Your sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3555387789312
+    m_Localized: 'Translate '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3600862433280
+    m_Localized: Save translation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3652217491456
+    m_Localized: Unlock Feline Conversations!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3708546994176
+    m_Localized: Subscribe to our premium cat translator and gain access to a world
+      of purr-sonal communication
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3805284421632
+    m_Localized: 3 days free than 5.99 USD per week
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3847445565440
+    m_Localized: Update to Premium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3889740926976
+    m_Localized: Stop recording
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3929981079552
+    m_Localized: Translator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3987996692480
+    m_Localized: History
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4021039419392
+    m_Localized: Profile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4063418667008
+    m_Localized: You don't have any translations yet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4111778992128
+    m_Localized: Start translation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4155676577792
+    m_Localized: Add new cat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4199498665984
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4245644398592
+    m_Localized: Add new cat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295615336448
+    m_Localized: Add cat photo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4343761752064
+    m_Localized: Your cat's name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4400565211136
+    m_Localized: Your cat's age
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4442919292928
+    m_Localized: Cat breed (optional)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4482916175872
+    m_Localized: Male
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4524917936128
+    m_Localized: Female
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
